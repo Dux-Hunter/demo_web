@@ -1,113 +1,165 @@
 import streamlit as st
 
-# Set page configuration
-st.set_page_config(page_title="Trading Tutorial", layout="wide")
+st.set_page_config(page_title="John Murphy Technical Analysis", layout="wide")
 
-# Sidebar navigation
-menu = st.sidebar.radio(
-    "Navigate",
-    ("Home", "Basic Trading Course", "Strategy Guide", "Chart Examples", "Contact")
-)
+menu = st.sidebar.radio("Navigate", (
+    "Home", "Introduction", "Charts & Trends", "Patterns", "Indicators", "Market Structure",
+    "Cycles & Waves", "Intermarket Analysis", "Full Summary", "Contact"
+))
 
-# Home Page
 if menu == "Home":
-    st.title("📈 Welcome to the Trading Tutorial Website")
+    st.title("📘 Technical Analysis by John Murphy")
     st.markdown("""
-        Learn how to trade smartly and manage risk with our beginner-friendly guides and examples.
-
-        This tutorial covers:
-        - Basic trading concepts
-        - Chart reading
-        - Strategies for intraday and swing trading
-        - Journaling your trades
+    This free online course is based on **John Murphy's book**  
+    _"Technical Analysis of the Financial Markets"_.  
+    Learn everything from chart basics to advanced trading psychology.
     """)
 
-# Basic Trading Course
-elif menu == "Basic Trading Course":
-    st.title("📚 Basic Trading Course")
-
-    with st.expander("1. What is Trading?"):
+elif menu == "Introduction":
+    st.title("📖 Introduction to Technical Analysis")
+    with st.expander("What is Technical Analysis?"):
         st.markdown("""
-        Trading is the act of buying and selling financial instruments like stocks, forex, or crypto for profit.
-        
-        Types:
-        - **Day Trading:** Same day buy/sell
-        - **Swing Trading:** Holding for days/weeks
-        - **Position Trading:** Long-term holding
+        - Study of price and volume to forecast future price movement.
+        - Focuses on **market action**, not fundamentals.
+        - Assumes market discounts everything.
         """)
 
-    with st.expander("2. Types of Markets"):
+    with st.expander("Basic Assumptions of TA"):
         st.markdown("""
-        - **Stock Market:** Shares of companies
-        - **Forex Market:** Currency trading
-        - **Commodities Market:** Gold, oil, etc.
-        - **Crypto Market:** Bitcoin, Ethereum, etc.
+        1. Market discounts everything  
+        2. Prices move in trends  
+        3. History tends to repeat itself
         """)
 
-    with st.expander("3. Candlestick Basics"):
+elif menu == "Charts & Trends":
+    st.title("📊 Charts & Trends")
+
+    with st.expander("Types of Charts"):
         st.markdown("""
-        Candlesticks show price movement during a time period.
-        
-        - Green Candle: Price went up
-        - Red Candle: Price went down
-        
-        Key parts:
-        - Body: Open to close
-        - Wick: High/low of the period
+        - **Line Chart**: Simplest form using closing prices.
+        - **Bar Chart**: Shows open, high, low, and close (OHLC).
+        - **Candlestick Chart**: Visually appealing, shows same OHLC info.
         """)
 
-    with st.expander("4. Risk Management"):
+    with st.expander("Trend Lines"):
         st.markdown("""
-        - Never risk more than **2% of your capital** on a trade.
-        - Use Stop Loss and Take Profit.
-        - Maintain a **risk-to-reward ratio** of at least 1:2.
+        - **Uptrend**: Higher highs and higher lows
+        - **Downtrend**: Lower highs and lower lows
+        - Drawn across lows in uptrend, highs in downtrend.
         """)
 
-    with st.expander("5. Psychology of Trading"):
+    with st.expander("Support & Resistance"):
         st.markdown("""
-        - Avoid emotional trading.
-        - Stick to your plan.
-        - Don't chase the market after losses.
-        - Keep a **trading journal** to improve.
+        - **Support**: Price level where buying pressure exceeds selling.
+        - **Resistance**: Level where selling pressure exceeds buying.
         """)
 
-# Strategy Guide Page
-elif menu == "Strategy Guide":
-    st.title("📘 Trading Strategies")
-    st.subheader("1. Support & Resistance")
+elif menu == "Patterns":
+    st.title("📐 Price Patterns")
+
+    with st.expander("Continuation Patterns"):
+        st.markdown("""
+        - **Triangles** (Symmetrical, Ascending, Descending)
+        - **Flags and Pennants**
+        - **Rectangles**
+        """)
+
+    with st.expander("Reversal Patterns"):
+        st.markdown("""
+        - **Head and Shoulders**
+        - **Double Top / Double Bottom**
+        - **Rounding Bottom**
+        """)
+
+elif menu == "Indicators":
+    st.title("📈 Technical Indicators")
+
+    with st.expander("Volume Indicators"):
+        st.markdown("""
+        - **On-Balance Volume (OBV)**
+        - **Volume Price Trend (VPT)**
+        """)
+
+    with st.expander("Momentum Indicators"):
+        st.markdown("""
+        - **RSI (Relative Strength Index)**
+        - **Stochastics**
+        - **MACD (Moving Average Convergence Divergence)**
+        """)
+
+    with st.expander("Moving Averages"):
+        st.markdown("""
+        - Simple Moving Average (SMA)
+        - Exponential Moving Average (EMA)
+        - Golden Cross & Death Cross
+        """)
+
+elif menu == "Market Structure":
+    st.title("🏛 Market Structure & Theories")
+
+    with st.expander("Dow Theory"):
+        st.markdown("""
+        - Markets move in **three trends**
+        - **Phases**: Accumulation, Public Participation, Distribution
+        - Need **confirmation** from Dow Jones Industrials and Transports
+        """)
+
+    with st.expander("Volume and Open Interest"):
+        st.markdown("""
+        - Volume confirms trend
+        - Rising volume = strong trend
+        - Open interest used in futures and options markets
+        """)
+
+elif menu == "Cycles & Waves":
+    st.title("🔁 Cycles and Elliott Wave")
+
+    with st.expander("Cycle Theory"):
+        st.markdown("""
+        - Markets move in repetitive **cycles**
+        - Examples: 4-year cycle, presidential cycle
+        """)
+
+    with st.expander("Elliott Wave Theory"):
+        st.markdown("""
+        - 5-wave impulse + 3-wave correction
+        - Waves reflect **crowd psychology**
+        - Fractal nature
+        """)
+
+elif menu == "Intermarket Analysis":
+    st.title("🌐 Intermarket Analysis & Sector Rotation")
+
+    with st.expander("Asset Class Relationships"):
+        st.markdown("""
+        - Bond → Stocks → Commodities → Gold
+        - Intermarket correlations help forecast turning points
+        """)
+
+    with st.expander("Sector Rotation"):
+        st.markdown("""
+        - Early Recovery: Technology, Industrials
+        - Mid: Financials, Consumer Discretionary
+        - Late: Commodities, Energy
+        - Recession: Utilities, Healthcare
+        """)
+
+elif menu == "Full Summary":
+    st.title("📋 Full Summary of All Topics")
     st.markdown("""
-        - Support: Price level where buyers step in.
-        - Resistance: Price level where sellers step in.
+    Click through the sidebar to explore the full John Murphy course, broken into:
+    - Trends
+    - Indicators
+    - Patterns
+    - Psychology
+    - Practical application
     """)
 
-    st.subheader("2. Moving Averages (MA)")
-    st.markdown("""
-        - 50 MA and 200 MA are commonly used.
-        - Golden cross = Buy signal.
-        - Death cross = Sell signal.
-    """)
-
-    st.subheader("3. RSI Indicator")
-    st.markdown("""
-        - RSI < 30: Oversold (potential buy)
-        - RSI > 70: Overbought (potential sell)
-    """)
-
-# Chart Examples Page
-elif menu == "Chart Examples":
-    st.title("📊 Chart Examples")
-
-    st.markdown("Here you can upload or display chart screenshots.")
-    uploaded_file = st.file_uploader("Upload your trading chart", type=["png", "jpg", "jpeg"])
-
-    if uploaded_file:
-        st.image(uploaded_file, caption="Uploaded Chart", use_column_width=True)
-
-# Contact Page
 elif menu == "Contact":
     st.title("📩 Contact Us")
     st.markdown("""
-        - **Email:** tradetutorial@example.com  
-        - **YouTube:** [TradingWithTanu](https://youtube.com)  
-        - **Telegram Group:** t.me/tradingwithtanu
+    **Email:** tradetutorial@example.com  
+    **YouTube:** [TradingWithTanu](https://youtube.com)  
+    **Telegram Group:** t.me/tradingwithtanu
     """)
+
